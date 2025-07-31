@@ -1,10 +1,10 @@
-# 🧪 Two-Stage Operational Transconductance Amplifier (OTA) – GPDK180
+# Two-Stage Operational Transconductance Amplifier (OTA) – GPDK180
 
 This repository contains the design, simulation, and analysis of a **Two-Stage OTA** using **Cadence Virtuoso** and **GPDK180 (180 nm CMOS)**. The project includes the schematic design, AC response simulation, and performance analysis based on standard analog design specifications.
 
 ---
 
-## 🔧 Design Specifications
+##Design Specifications
 
 - **Technology**: 180 nm (GPDK180)
 - **Process Constants**:
@@ -24,7 +24,7 @@ This repository contains the design, simulation, and analysis of a **Two-Stage O
 
 ---
 
-## ⚙️ Transistor Sizing
+##Transistor Sizing
 
 | Transistor | Width (W) | Length (L) |
 |------------|------------|-------------|
@@ -36,7 +36,7 @@ This repository contains the design, simulation, and analysis of a **Two-Stage O
 
 ---
 
-## 🖼️ Circuit Schematic
+## Circuit Schematic
 
 Below is the two-stage OTA architecture used in this design:
 
@@ -44,7 +44,7 @@ Below is the two-stage OTA architecture used in this design:
 
 ---
 
-## 📈 Simulation Result
+## Simulation Result
 
 ### ➤ AC Response (Gain & Phase)
 

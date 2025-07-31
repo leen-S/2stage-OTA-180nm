@@ -1,0 +1,54 @@
+// Generated for: spectre
+// Generated on: Jul 31 07:56:24 2025
+// Design library name: LeenOTA
+// Design cell name: OTA_TB
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/home/Analog_RHEL_8/FOUNDRY/analog/180nm/models/spectre/gpdk.scs" section=NN
+
+// Library name: LeenOTA
+// Cell name: OTA
+// View name: schematic
+subckt OTA Cc Ibias gnd vdd vin\+ vin\- vout
+    PM2 (vout Cc vdd vdd) pmos1 w=(50u) l=500n as=30p ad=30p ps=101.2u \
+        pd=101.2u m=(3)*(1)
+    PM1 (Cc net1 vdd vdd) pmos1 w=(7u) l=500n as=4.2p ad=4.2p ps=15.2u \
+        pd=15.2u m=(1)*(1)
+    PM3 (net1 net1 vdd vdd) pmos1 w=(7u) l=500n as=4.2p ad=4.2p ps=15.2u \
+        pd=15.2u m=(1)*(1)
+    NM4 (Ibias Ibias gnd gnd) nmos1 w=(6u) l=500n as=3.6p ad=3.6p ps=13.2u \
+        pd=13.2u m=(1)*(1)
+    NM3 (Cc vin\+ net3 gnd) nmos1 w=(3u) l=500n as=1.8p ad=1.8p ps=7.2u \
+        pd=7.2u m=(1)*(1)
+    NM2 (vout Ibias gnd gnd) nmos1 w=(37.5u) l=500n as=22.5p ad=22.5p \
+        ps=76.2u pd=76.2u m=(3)*(1)
+    NM1 (net3 Ibias gnd gnd) nmos1 w=(6u) l=500n as=3.6p ad=3.6p ps=13.2u \
+        pd=13.2u m=(1)*(1)
+    NM0 (net1 vin\- net3 gnd) nmos1 w=(3u) l=500n as=1.8p ad=1.8p ps=7.2u \
+        pd=7.2u m=(1)*(1)
+ends OTA
+// End of subcircuit definition.
+
+// Library name: LeenOTA
+// Cell name: OTA_TB
+// View name: schematic
+I0 (net1 net2 0 vdd! Vin\+ Vin\- Vout) OTA
+C1 (net1 Vout) capacitor c=600.0f
+C0 (Vout 0) capacitor c=2p
+I4 (vdd! net2) isource dc=14u type=dc
+V2 (Vin\- 0) vsource dc=1 type=dc
+V1 (Vin\+ 0) vsource dc=1 mag=1 type=dc
+V0 (vdd! 0) vsource dc=1.2 type=dc
+simulatorOptions options psfversion="1.4.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+ac ac start=1 stop=1G dec=100 annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub
